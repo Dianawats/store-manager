@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Store Manager - Products</title>
+<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+</head>
+
+<body>
+    <div class="header">
+    	<div class="top-bar">
+    		<div class="container">
+    			<div class="brand">
+	    			<h3>Store Manager</h3>
+	    		</div>
+    			<div class="account">
+    				<label class="pull-left margin-right-16">Diana Nakiwala</label>
+    				<label class="pull-left"><a href="../login.html">Logout</a></label>
+    			</div>
+    			<div class="clear"></div>
+    		</div>
+    	</div>
+    	<div class="navigation">
+    		<div class="container">
+	    		<ul>
+	    			<li>
+	    				<a class="selected" href="products.html">Products</a>
+	    			</li>
+
+	    			<li>
+	    				<a href="cart.html">Cart</a>
+	    			</li>
+
+	    			<li>
+	    				<a href="sales.html">Sales</a>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    	<div class="clear"></div>
+    	</div>
+    	<div class="clear"></div>
+    </div>
+
+    <div class="main-content">
+    	<div class="container">
+	    	<div class="card products">
+	    		<div class="card-title">
+		    		<h3>Add a product</h3>
+		    	</div>
+
+		    	<div class="card-content">
+		    		<form action="index.html" method="post">
+			        	<div class="input-control">
+			        		<label for="name">Name</label>
+			        		<input type="text" name="name" id="name" required class="input" placeholder="Enter product name">
+			        	</div>
+
+			        	<div class="input-control">
+			        		<label for="qty">Quantity</label>
+			        		<input type="text" name="qty" id="qty" required class="input" placeholder="Enter product quantity">
+			        	</div>
+
+			        	<div class="input-control">
+			        		<label for="price">Price</label>
+			        		<input type="text" name="price" id="price" required class="input" placeholder="Enter price">
+			        	</div>
+
+			        	<div class="input-control">
+			        		<label for="category">Category</label>
+		    				<select name="" class="input" id="category">
+		    					<option>Select category</option>
+		    					<option>Foods</option>
+		    					<option>Household</option>
+		    					<option>Agricultural</option>
+		    				</select>
+		    			</div>
+
+			        	<button type="submit" name="add" class="btn">Save</button> 
+			        	<a href="products.html" class="btn btn-red">Cancel</a> 
+			        </form>
+		    	</div>
+	    	</div>
+	    </div>
+    </div>
+
+    <footer>
+    	<div class="container">
+	    	<span>&copy; 2018 Store Manager. All Rights Reserved</span>
+	    </div>
+    </footer>
+    
+</body>
+
+</html> 
