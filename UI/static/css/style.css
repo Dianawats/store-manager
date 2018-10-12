@@ -374,3 +374,13 @@ table td {
 	}
 }
 
+footer {
+	padding: 14px;
+	border-top: 1px solid #e0e0e0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #0a1d38;
+	color: #e0e0e0;
+}
+
