@@ -149,3 +149,149 @@ table td {
 	padding: 7px 2px 10px 2px;
 	border-bottom: 1px solid #e9e9e9;
 }
+
+
+.margin-right-16 {
+	margin-right: 16px !important;
+}
+
+.row {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -0.75rem;
+	margin-left: -0.75rem;
+}
+
+.side-2 {
+	-ms-flex: 0 0 16.66666667%;
+	flex: 0 0 16.66666667%;
+	max-width: 16.66666667%;
+}
+
+.side-3 {
+	-ms-flex: 0 0 25%;
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+
+.side-4 {
+	-ms-flex: 0 0 33.33333333%;
+	flex: 0 0 33.33333333%;
+	max-width: 33.33333333%;
+}
+
+.side-6 {
+	-ms-flex: 0 0 50%;
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.side-12 {
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+.side-2, .side-3, .side-4, .side-6 {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 0.75rem;
+	padding-left: 0.75rem;
+}
+
+.red-text {
+	color: #f00;
+}
+
+/** main page styles **/
+.header {
+	background: #0a1d38;
+	width: 100%;
+	color: #e0e0e0;
+}
+
+.header .top-bar {
+	padding: 16px;
+	border-bottom: 1px solid #112e56;
+}
+
+.header .top-bar .brand {
+	float: left;
+}
+
+.header .top-bar .account {
+	float: right;
+	width: 20%;
+	cursor: pointer;
+}
+
+.header .top-bar .account label {
+	margin: 0;
+	padding: 0;
+}
+
+.header .top-bar .account label a{
+	color: #f00;
+}
+
+.header .top-bar .account .profile-pic {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	overflow: hidden;
+	float: left;
+	margin-right: 20px;
+}
+
+.header .top-bar .account .profile-pic img {
+	width: 100%;
+}
+
+.header .navigation {
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.header .navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.header .navigation ul a {
+	text-decoration: none;
+	color: #ddd;
+	float: left;
+	padding: 15px 0;
+	margin-right: 20px;
+}
+
+.header .navigation ul a:hover {
+	border-bottom: 1px solid #aaa;
+	color: #aaa;
+}
+
+.header .navigation ul a.selected {
+	border-bottom: 1px solid #467fcf;
+	color: #467fcf;
+}
+
+.main-content {
+	padding: 20px 0;
+	margin-bottom: 50px;
+}
+
+/** login page styles **/
+
+.login-main {
+	width: 25%;
+	margin: 200px auto;
+	padding: 40px;
+	background: #fff;
+	/*border: 1px solid;
+	border-color: #e0e0e0;*/
+	border-radius: 3px;
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
+}
