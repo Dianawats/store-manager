@@ -26,10 +26,11 @@ You will need the following:
 
 ## Project links:
 **User Interface:** 
-The user interface pages for this project are hosted on this url: (git clone https://github.com/Dianawats/store-manager.git`)
+The UI folder houses the user interface. To access the user interface, open the login.html or index.html
+file inside the UI/templates folder
 
 Here is my link to the UI final branch:
-https://github.com/Dianawats/store-manager
+(git clone: https://github.com/Dianawats/store-manager)
 
 
 
