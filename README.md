@@ -26,9 +26,8 @@ You will need the following:
 
 ## Project links:
 **User Interface:** 
-The user interface pages for this project are hosted this url: (git clone https://github.com/Dianawats/store-manager.git`)
-The code for the UI templates can be accessed using the URL: 
-(https://github.com/Dianawats/store-manager.git`)
+The user interface pages for this project are hosted on this url: (git clone https://github.com/Dianawats/store-manager.git`)
+
 
 
 ## Authors
