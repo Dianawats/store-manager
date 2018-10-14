@@ -28,6 +28,9 @@ You will need the following:
 **User Interface:** 
 The user interface pages for this project are hosted on this url: (git clone https://github.com/Dianawats/store-manager.git`)
 
+Here is my link to the UI final branch:
+https://github.com/Dianawats/store-manager
+
 
 
 ## Authors
