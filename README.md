@@ -13,8 +13,14 @@ records. This application is meant for use in a single store..
 - Store owner can see sales and can filter by attendants.
 - Store owner can add, modify and delete products. 
 ```
+### Optional Features
+```
+- Store owner can give admin rights to a store attendant.
+- Products should have categories.
+- Store attendants should be able to add products to specific categories.
+```
 ## Getting Started
-This following information will help you setup and run the application on your local machine.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
 ### Prerequisites
 
@@ -33,7 +39,13 @@ Here is my link to the UI final branch:
 (git clone: https://github.com/Dianawats/store-manager)
 
 
-
-## Authors
+## Author
 
 * **Diana Nakiwala**
+
+## Acknowledgments
+
+* Andela Software Development Community
+* Inspiration
+* Bootcamp 13 team-mates
+
