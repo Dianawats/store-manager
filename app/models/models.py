@@ -3,7 +3,7 @@ class Product(object):
     Product model class
     """
     def __init__(self, name, quantity, price, category):
-         """
+        """
         constructor method for class
         :param product_id = 0:
         :param product_name:
@@ -27,4 +27,4 @@ class Product(object):
         }
 
 
-class Sale(object):
+# class Sale(object):
