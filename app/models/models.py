@@ -11,7 +11,7 @@ class Product(object):
         :param price:
         :param category:
         """
-        self.id = 0; 
+        self.id = 0 
         self.name = name
         self.quantity = quantity
         self.price = price
