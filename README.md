@@ -4,6 +4,7 @@
 Store Manager is a web application that helps store owners manage sales and product inventory
 records. This application is meant for use in a single store..
 
+### User Interface
 ### Required Features
 ```
 - Users can create an account and log in.
@@ -37,6 +38,15 @@ file inside the UI/templates folder
 
 Here is my link to the UI final branch:
 (git clone: https://github.com/Dianawats/store-manager)
+
+### API Endpoints
+```
+- Admin can add a product
+- Admin/store attendant can get all products
+- Admin/store attendant can get a specific product
+- Store attendant can add a sale order
+- Admin can get all sale order records
+```
 
 
 ## Author
