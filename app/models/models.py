@@ -40,6 +40,6 @@ class Sale(object):
             "id": self.sales_id,
             "name": self.name,
             "quantity_sold": self.quantity_sold,
-            "amount": self.amount
+            "amount": self.amount,
             "date": self.datetime
         }
