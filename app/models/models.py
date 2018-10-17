@@ -34,3 +34,12 @@ class Sale(object):
         self.quantity_sold = quantity_sold
         self.amount = amount
         self.date = datetime
+
+    def jsonify(self):
+        return {
+            "id": self.sales_id,
+            "name": self.name,
+            "quantity_sold": self.quantity_sold,
+            "amount": self.amount
+            "date": self.datetime
+        }
