@@ -1,30 +1,36 @@
+from datetime import datetime
+
 class Product(object):
     """
     Product model class
     """
-    def __init__(self, name, quantity, price, category):
+    def __init__(self, name, quantity, price):
         """
         constructor method for class
         :param product_id = 0:
         :param product_name:
         :param quantity:
         :param price:
-        :param category:
         """
         self.id = 0 
         self.name = name
         self.quantity = quantity
         self.price = price
-        self.category = category
+        Product = []
 
     def jsonify(self):
         return {
             "id": self.id,
             "name": self.name,
             "quantity": self.quantity,
-            "price": self.price,
-            "category": self.category
+            "price": self.price
         }
 
 
-# class Sale(object):
+class Sale(object):
+    def __init__(self,sales_id, name, quantity_sold, amount):
+        self.id = sales_id
+        self.name = name
+        self.quantity_sold = quantity_sold
+        self.amount = amount
+        self.date = datetime
