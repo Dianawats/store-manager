@@ -38,4 +38,12 @@ class Product:
             return jsonify({"All Products":all_products}), 200
         return jsonify({"message":"no products added yet"}), 404   
 
-    
+    def fetch_single_product(self):
+        """get request method for a single product"""
+        product_id = self.user_input
+        if len(all_products) > 0:
+            for product in range(len(all_products)):
+                if ((all_products[product]["product_id"]) == int(product_id)):
+                    return jsonify({"Product":all_products[product]}),200  
+        return jsonify({"message":"no products added yet"}), 404   
+        
