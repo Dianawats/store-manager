@@ -33,6 +33,7 @@ class Product:
 
     @staticmethod
     def fetch_all_products():
+        """get request method for all products"""
         if len(all_products) > 0:
             return jsonify({"All Products":all_products}), 200
         return jsonify({"message":"no products added yet"}), 404   
