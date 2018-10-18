@@ -3,9 +3,7 @@ from flask import request
 from .models.product import Product
 
 @app.route("/api/v1/products",methods=["POST"])
-"""
-Add the product route
-"""
+"""Add the product route"""
 def add_product():
     add_product = Product(request.get_json())
     new_product = add_product.add_product()
