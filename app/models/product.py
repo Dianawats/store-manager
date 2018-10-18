@@ -29,6 +29,12 @@ class Product:
 
             all_products.append(product)
             return jsonify({"message":"product successfully added", "products":all_products}), 201
-        return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400     
+        return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400  
+
+    @staticmethod
+    def fetch_all_products():
+        if len(all_products) > 0:
+            return jsonify({"All Products":all_products}), 200
+        return jsonify({"message":"no products added yet"}), 404   
 
     
