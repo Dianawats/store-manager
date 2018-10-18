@@ -10,7 +10,7 @@ class Product:
         self.user_input = user_input
 
     def add_product(self):
-        """Method for adding product item"""
+        """Method for adding a product item"""
         data = self.user_input
         search_keys = ("product_name", "quantity", "price")
         if all(key in data.keys() for key in search_keys):
