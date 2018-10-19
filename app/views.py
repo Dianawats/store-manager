@@ -44,7 +44,7 @@ def fetch_single_product(product_id):
     single_product = product_obj.fetch_single_product(product_id)
     if single_product:
         return jsonify({"product details": single_product}), 200
-    return jsonify({"message":"product not added yet"}), 404
+    return jsonify({"message":"product not yet added"}), 404
 
 @app.route("/api/v1/sales", methods=["POST"])
 # """routes for adding sales record"""
@@ -75,7 +75,7 @@ def fetch_all_sales():
     return jsonify({"message":"no sales created yet"}), 404  
 
 @app.route("/api/v1/sales/<sale_id>", methods=["GET"])
-# fetching a single sale
+# """fetching a single sale"""
 def fetch_single_sale(sale_id):
     invalid = validation_obj.validate_input_type(sale_id)
     if invalid:
