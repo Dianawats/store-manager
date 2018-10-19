@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/Dianawats/store-manager/badge.svg?branch=develop)](https://coveralls.io/github/Dianawats/store-manager?branch=develop)
 # store-manager
 
 ### Project Overview
