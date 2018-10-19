@@ -1,5 +1,5 @@
 from app import app
-from flask import request
+from flask import request, jsonify
 from .models.product import Product
 from .models.sales import SaleRecord
 from app.validation import Validation
@@ -58,7 +58,5 @@ def fetch_all_sales():
     if all_sales:
         return jsonify({"All Sales":sale_obj.all_Sales}), 200
     return jsonify({"message":"no sales created yet"}), 404  
-
-
 
 
