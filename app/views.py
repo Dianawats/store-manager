@@ -1,6 +1,7 @@
 from app import app
 from flask import request
 from .models.product import Product
+from .models.sales import SaleRecord
 from app.validation import Validation
 
 product_object = Product()
