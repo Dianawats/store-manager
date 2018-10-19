@@ -59,4 +59,14 @@ def fetch_all_sales():
         return jsonify({"All Sales":sale_obj.all_Sales}), 200
     return jsonify({"message":"no sales created yet"}), 404  
 
+@app.route("/api/v1/sales/<sale_id>", methods=["GET"])
+"""fetching a single sale"""
+def fetch_single_sale(sale_id):
+    invalid = validation_obj.validate_input_type(sale_id)
+    if invalid:
+        return jsonify({"message":invalid}), 400
+    single_sale = sale_obj.fetch_single_sale(sale_id)
+    if single_sale:
+        return jsonify({"sale details": single_sale}), 200
+    return jsonify({"message":"sale not yet added"}), 404
 
