@@ -21,3 +21,9 @@ class SaleRecord:
         )
         self.all_Sales.append(sale_record)
         return True
+
+    def fetch_all_sales(self):
+        """This method fetches all the available sales"""
+        if len(self.all_Sales) > 0:
+            return self.all_Sales
+        return False
