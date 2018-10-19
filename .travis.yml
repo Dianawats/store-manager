@@ -9,7 +9,6 @@ install:
 
 script:
     - pytest tests --cov=api --cov-report term-missing
-    - coverage report
 
 after_success:
     - coveralls
