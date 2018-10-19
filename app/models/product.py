@@ -1,49 +1,31 @@
-from app.validation import Validation
-from flask import jsonify
+class Product(object):
+    """Product Class model"""
+    def __init__(self):
+        self.all_products = []
 
-all_products=[]
-validation = Validation()
-
-class Product:
-    """model class for a product"""
-    def __init__(self, user_input):
-        self.user_input = user_input
-
-    def add_product(self):
-        """Method for adding a product item"""
-        data = self.user_input
-        search_keys = ("product_name", "quantity", "price")
-        if all(key in data.keys() for key in search_keys):
-            
-            valid = validation.product_validation(data.get("product_name"), data.get("quantity"), data.get("price"))
-            if valid:
-                return jsonify({"message":valid}), 400
-            product = dict(
-                product_id = len(all_products) + 1,
-                product_name = data.get("product_name"),
-                quantity = data.get("quantity"),
-                unit_price = data.get("price")
+    def add_product(self, product, quantity, price):
+        """This method adds product item"""
+        product = dict(
+                product_id = len(self.all_products) + 1,
+                product = product,
+                quantity = quantity,
+                price = price
             )
-            if any(d["product_name"] == data.get("product_name") for d in all_products):
-                return jsonify({"message":"product already exists, update its quantity"}), 409       
+        self.all_products.append(product)
+        return self.all_products
 
-            all_products.append(product)
-            return jsonify({"message":"product successfully added", "products":all_products}), 201
-        return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400  
+    def fetch_all_products(self):
+        """This method fetches all available products"""
+        if len(self.all_products) > 0:
+            return self.all_products
+        return False
 
-    @staticmethod
-    def fetch_all_products():
-        """get request method for all products"""
-        if len(all_products) > 0:
-            return jsonify({"All Products":all_products}), 200
-        return jsonify({"message":"no products added yet"}), 404   
-
-    def fetch_single_product(self):
-        """get request method for a single product"""
-        product_id = self.user_input
-        if len(all_products) > 0:
-            for product in range(len(all_products)):
-                if ((all_products[product]["product_id"]) == int(product_id)):
-                    return jsonify({"Product":all_products[product]}),200  
-        return jsonify({"message":"no products added yet"}), 404   
-        
+    def fetch_single_product(self, product_id):
+        """This method fetches a single product"""
+        if len(self.all_products) > 0:
+            for product in range(len(self.all_products)):
+                if ((self.all_products[product]["product_id"]) == int(product_id)):
+                    return self.all_products[product]
+                return False    
+        return False
+      
