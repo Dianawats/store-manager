@@ -27,3 +27,12 @@ class SaleRecord:
         if len(self.all_Sales) > 0:
             return self.all_Sales
         return False
+
+    def fetch_single_sale(self, sale_id):
+        """ This method fetches a single sale"""
+        if len(self.all_Sales) > 0:
+            for sale in range(len(self.all_Sales)):
+                if ((self.all_Sales[sale]["sale_id"]) == int(sale_id)):
+                    return self.all_Sales[sale]
+                return False    
+        return False   
