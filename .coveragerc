@@ -1,0 +1,11 @@
+[report]=
+show_missing = True
+omit=
+    */.pytest_cache/*
+    */__pycache__/*
+    */venv/*
+    */.pyc
+    */env/*
+
+    */.vscode/*
+    */pytest_cache/*
