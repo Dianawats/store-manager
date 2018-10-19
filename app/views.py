@@ -4,35 +4,50 @@ from .models.product import Product
 from .models.sales import SaleRecord
 from app.validation import Validation
 
-product_object = Product()
-sale_object = SaleRecord()
-validation_object = Validation()
+product_obj = Product()
+sale_obj = SaleRecord()
+validation_obj = Validation()
 
 @app.route("/api/v1/products",methods=["POST"])
-"""Add the product route"""
+# """adding the product route"""
 def add_product():
-    add_product = Product(request.get_json())
-    new_product = add_product.add_product()
-    return new_product
+    data = request.get_json()
+    search_keys = ("product", "quantity", "price")
+    if all(key in data.keys() for key in search_keys):
+        product = data.get("product")
+        quantity = data.get("quantity")
+        price = data.get("price")
+
+        invalid = validation_obj.product_validation(product, quantity, price)
+        if invalid:
+            return jsonify({"message":invalid}), 400
+        if any(prodct["product"] == product for prodct in product_obj.all_products):
+            return jsonify({"message":"product already exists, just update its quantity"}), 409
+        if (product_obj.add_product(product, quantity, price)):
+            return jsonify({"message":"product successfully added", "products":product_obj.all_products}), 201
+    return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400 
 
 @app.route("/api/v1/products", methods=["GET"])
-"""This route for fetching all products"""
+# """This route fetches all products"""
 def fetch_all_products():
-    all_products = Product.fetch_all_products()
-    return all_products 
+    all_products = product_obj.fetch_all_products()
+    if all_products:
+        return jsonify({"All Products":all_products}), 200
+    return jsonify({"message":"no products added yet"}), 404
 
 @app.route("/api/v1/products/<product_id>", methods=["GET"])
-"""route for a single product"""
+# """This route fetches a single product"""
 def fetch_single_product(product_id):
-    valid = validation.validate_input_type(product_id)
-    if valid:
-        return jsonify({"message":valid}), 400
-    product = Product(product_id)
-    single_product = product.fetch_single_product()
-    return single_product
+    invalid = validation_obj.validate_input_type(product_id)
+    if invalid:
+        return jsonify({"message":invalid}), 400
+    single_product = product_obj.fetch_single_product(product_id)
+    if single_product:
+        return jsonify({"product details": single_product}), 200
+    return jsonify({"message":"product not added yet"}), 404
 
 @app.route("/api/v1/sales", methods=["POST"])
-"""routes for adding sales record"""
+# """routes for adding sales record"""
 def create_sales_record():
     data = request.get_json()
     search_keys = ( "product","quantity", "amount")
@@ -52,7 +67,7 @@ def create_sales_record():
         return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400
 
 @app.route("/api/v1/sales", methods=["GET"])
-"""route for fetching all sales"""
+# """route for fetching all sales"""
 def fetch_all_sales():
     all_sales = sale_obj.fetch_all_sales()
     if all_sales:
@@ -60,7 +75,7 @@ def fetch_all_sales():
     return jsonify({"message":"no sales created yet"}), 404  
 
 @app.route("/api/v1/sales/<sale_id>", methods=["GET"])
-"""fetching a single sale"""
+# fetching a single sale
 def fetch_single_sale(sale_id):
     invalid = validation_obj.validate_input_type(sale_id)
     if invalid:
@@ -68,5 +83,4 @@ def fetch_single_sale(sale_id):
     single_sale = sale_obj.fetch_single_sale(sale_id)
     if single_sale:
         return jsonify({"sale details": single_sale}), 200
-    return jsonify({"message":"sale not yet added"}), 404
-
+    return jsonify({"message":"sale not created yet"}), 404
