@@ -28,7 +28,8 @@ Here is my link to the UI final branch:
 - Admin can get all sale order records
 ```
 
-### Endpoints to create, views available products and create sale records
+###Use the following endpoints to perform the specified tasks
+## Endpoints 
 HTTP Method|End point | Public Access|Action
 -----------|----------|--------------|------
 POST | /api/v1/products | False | Create a product
