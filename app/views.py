@@ -8,28 +8,29 @@ product_obj = Product()
 sale_obj = SaleRecord()
 validation_obj = Validation()
 
-"""Product Views"""
+"""These are the Product Views"""
 @app.route("/api/v1/products",methods=["POST"])
-#adding product
+#This view adds product
 def add_product():
     data = request.get_json()
-    search_keys = ("product", "quantity", "unit_price")
+    search_keys = ("product", "quantity", "price")
     if all(key in data.keys() for key in search_keys):
         product = data.get("product")
         quantity = data.get("quantity")
-        unit_price = data.get("unit_price")
+        price = data.get("price")
 
-        invalid = validation_obj.product_validation(product, quantity, unit_price)
+        invalid = validation_obj.product_validation(product, quantity, price)
         if invalid:
             return jsonify({"message":invalid}), 400
         if any(prodct["product"] == product for prodct in product_obj.all_products):
             return jsonify({"message":"product already exists, just update its quantity"}), 409
-        if (product_obj.add_product(product, quantity, unit_price)):
-            return jsonify({"message":"product successfully added", "products":product_obj.all_products}), 201
+        if (product_obj.add_product(product, quantity, price)):
+            return jsonify({"message":"product added successfully", 
+                            "products":product_obj.all_products}), 201
     return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400 
 
 @app.route("/api/v1/products", methods=["GET"])
-# fetching all products
+#fetching all products
 def fetch_all_products():
     all_products = product_obj.fetch_all_products()
     if all_products:
@@ -37,7 +38,7 @@ def fetch_all_products():
     return jsonify({"message":"no products added yet"}), 404 
 
 @app.route("/api/v1/products/<product_id>", methods=["GET"])
-# fetching a single product
+#fetching a single product
 def fetch_single_product(product_id):
     invalid = validation_obj.validate_input_type(product_id)
     if invalid:
@@ -49,7 +50,7 @@ def fetch_single_product(product_id):
 
 """Sales View"""
 @app.route("/api/v1/sales", methods=["POST"])
-#adding sales recotd
+#adding sales record
 def create_sales_record():
     data = request.get_json()
     search_keys = ( "product","quantity", "amount")
@@ -62,7 +63,8 @@ def create_sales_record():
         if invalid_values:
             return jsonify({"message":invalid_values}), 400
         if (sale_obj.create_sale_record(product, quantity, amount)):
-            return jsonify({"message":"Sale record successfully created", "Sales":sale_obj.all_Sales}), 201
+            return jsonify({"message":"Sale record successfully created", 
+                            "Sales":sale_obj.all_Sales}), 201
         else:
             return jsonify({"message":"sale record not created or no products added yet"}), 400
     else:
