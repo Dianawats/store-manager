@@ -33,10 +33,10 @@ Here is my link to the UI final branch:
 HTTP Method|End point | Public Access|Action
 -----------|----------|--------------|------
 POST | /api/v1/products | False | Create a product
-POST | /api/v1/sales | False | Create a sale order
 GET | /api/v1/products | False | Fetch all available products
 GET | /api/v1/products/<product_id> | False | Fetch a single product
-GET | /api/v1/sales/<sale_id>/answer | False | Fetch a single sale record
+POST | /api/v1/sales | False | Create a sale order
+GET | /api/v1/sales/<sale_id> | False | Fetch a single sale record
 GET | /api/v1/sales | False | Fetch all sale records created
 
 
