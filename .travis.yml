@@ -3,12 +3,18 @@ language: python
 python:
     - "3.6"
 
+env:
+    global:
+        - CODECOV_TOKEN="7a9d0889-7ce1-4cef-afa0-9dee6c4e12ef"
+
 install:
     - pip install -r requirements.txt
+    - pip install codecov
 
 script:
     - nosetests -v --with-coverage --cover-package=app
 
 after_success:
     - coveralls
+    - codecov
 
