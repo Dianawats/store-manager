@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e9e6dd2c31b048a7a88316b75c3a8063)](https://www.codacy.com/app/Dianawats/store-manager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Dianawats/store-manager&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/Dianawats/store-manager.svg?branch=develop)](https://travis-ci.org/Dianawats/store-manager)
 [![Coverage Status](https://coveralls.io/repos/github/Dianawats/store-manager/badge.svg?branch=develop)](https://coveralls.io/github/Dianawats/store-manager?branch=develop)
 # store-manager
@@ -29,7 +30,6 @@ Here is my link to the UI final branch:
 ```
 
 ###Use the following endpoints to perform the specified tasks
-## Endpoints 
 HTTP Method|End point | Public Access|Action
 -----------|----------|--------------|------
 POST | /api/v1/products | False | Create a product
