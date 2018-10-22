@@ -83,7 +83,7 @@ class TestSales(BaseTestCase):
             data=json.dumps(dict(quantity="20", amount="0"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "a 'key(s)' is missing in your request body")
+        self.assertEqual(reply["message"], "You missed some key in your request body")
         self.assertEqual(response.status_code, 400)                    
 
     def test_fetching_sales(self):

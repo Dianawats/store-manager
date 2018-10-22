@@ -29,7 +29,7 @@ def add_product():
         if (product_obj.add_product(product, quantity, price)):
             return jsonify({"message":"product added successfully", 
                             "products":product_obj.all_products}), 201
-    return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400 
+    return jsonify({"message": "You missed some key in your request body"}), 400 
 
 @app.route("/api/v1/products", methods=["GET"])
 #fetching all products
@@ -73,7 +73,7 @@ def create_sales_record():
         else:
             return jsonify({"message":"sale record not created or no products added yet"}), 400
     else:
-        return jsonify({"message": "a 'key(s)' is missing in your request body"}), 400
+        return jsonify({"message": "You missed some key in your request body"}), 400
 
 @app.route("/api/v1/sales", methods=["GET"])
 # fetching all sales
