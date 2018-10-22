@@ -5,9 +5,6 @@ from flask import json
 sales_obj = SaleRecord()
 class TestSales(BaseTestCase):
 
-    def test_data_structure(self):
-        self.assertTrue(isinstance(sales_obj.all_Sales, list))
-
     def test_creating_sale(self):
         response = self.app.post("/api/v1/sales",
             content_type='application/json',

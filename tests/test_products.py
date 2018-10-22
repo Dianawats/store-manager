@@ -5,9 +5,6 @@ from flask import json
 product_obj = Product()
 class TestProducts(BaseTestCase):
 
-    def test_data_structure(self):
-        self.assertTrue(isinstance(product_obj.all_products, list))
-
     def test_add_product(self):
         response = self.app.post("/api/v1/products",
             content_type='application/json',
