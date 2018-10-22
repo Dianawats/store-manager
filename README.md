@@ -31,14 +31,14 @@ Here is my link to the UI final branch:
 
 ##Use the following endpoints to perform the specified tasks
 
-HTTP Method|End point | Public Access | Action
------------|----------|---------------|------
-POST | /api/v1/products | False | Create a product
-GET | /api/v1/products | False | Fetch all available products
-GET | /api/v1/products/<product_id> | False | Fetch a single product
-POST | /api/v1/sales | False | Create a sale order
-GET | /api/v1/sales/<sale_id> | False | Fetch a single sale record
-GET | /api/v1/sales | False | Fetch all sale records created
+HTTP Method | Endpoint | Functionality | Parameters | Protected
+----------- | -------- | ------------- | ---------- | ---------
+POST | /products | Create a product | None | False
+GET | /products | Fetch all products | None | False
+GET | /products/int:product_id | Fetch a single product record | product_id | False
+POST | /sales | Create a sale order | None | False
+GET | /sales/sale_id | Fetch a single sale record | sale_id | False
+GET | /sales | Fetch all sale records | None | False
 
 # Heroku deployment:
 
