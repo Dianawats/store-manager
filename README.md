@@ -1,5 +1,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e9e6dd2c31b048a7a88316b75c3a8063)](https://www.codacy.com/app/Dianawats/store-manager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Dianawats/store-manager&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/Dianawats/store-manager.svg?branch=develop)](https://travis-ci.org/Dianawats/store-manager)
+[![codecov](https://codecov.io/gh/Dianawats/store-manager/branch/develop/graph/badge.svg)](https://codecov.io/gh/Dianawats/store-manager)
 [![Coverage Status](https://coveralls.io/repos/github/Dianawats/store-manager/badge.svg?branch=develop)](https://coveralls.io/github/Dianawats/store-manager?branch=develop)
 # store-manager
 
