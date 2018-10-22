@@ -1,10 +1,15 @@
 class Product(object):
-    "product model class"
+    """
+    A class that defines product attributes
+    """
+
     def __init__(self):
         self.all_products = []
 
     def add_product(self, product, quantity, price):
-        """This method adds product item"""
+        """
+        This method adds product item
+        """
         product = dict(
                 product_id = len(self.all_products) + 1,
                 product = product,
@@ -15,13 +20,17 @@ class Product(object):
         return self.all_products
 
     def fetch_all_products(self):
-        """Method to fetch all available products"""
+        """
+        Method to fetch all available products
+        """
         if len(self.all_products) > 0:
             return self.all_products
         return False
 
     def fetch_single_product(self, product_id):
-        """Method to fetch a single product"""
+        """
+        Method to fetch a single product
+        """
         if len(self.all_products) > 0:
             for product in range(len(self.all_products)):
                 if ((self.all_products[product]["product_id"]) == int(product_id)):
