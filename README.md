@@ -29,15 +29,17 @@ Here is my link to the UI final branch:
 - Admin can get all sale order records
 ```
 
-###Use the following endpoints to perform the specified tasks
-HTTP Method|End point | Public Access|Action
------------|----------|--------------|------
+##Use the following endpoints to perform the specified tasks
+
+HTTP Method|End point | Public Access | Action
+-----------|----------|---------------|------
 POST | /api/v1/products | False | Create a product
 GET | /api/v1/products | False | Fetch all available products
 GET | /api/v1/products/<product_id> | False | Fetch a single product
 POST | /api/v1/sales | False | Create a sale order
 GET | /api/v1/sales/<sale_id> | False | Fetch a single sale record
 GET | /api/v1/sales | False | Fetch all sale records created
+
 
 
 ## Author
