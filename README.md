@@ -35,7 +35,7 @@ HTTP Method | Endpoint | Functionality | Parameters | Protected
 ----------- | -------- | ------------- | ---------- | ---------
 POST | /products | Create a product | None | False
 GET | /products | Fetch all products | None | False
-GET | /products/<int:product_id> | Fetch a single product record | product_id | False
+GET | /products/<product_id> | Fetch a single product record | product_id | False
 POST | /sales | Create a sale order | None | False
 GET | /sales/<sale_id> | Fetch a single sale record | sale_id | False
 GET | /sales | Fetch all sale records | None | False
