@@ -56,6 +56,7 @@ Sales View to handle requests with sales endpoint
 @app.route("/api/v1/sales", methods=["POST"])
 #adding sales record
 def create_sales_record():
+    # extract request data
     data = request.get_json()
     search_keys = ( "product","quantity", "amount")
     if all(key in data.keys() for key in search_keys):
