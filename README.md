@@ -40,7 +40,7 @@ POST | /api/v1/sales | False | Create a sale order
 GET | /api/v1/sales/<sale_id> | False | Fetch a single sale record
 GET | /api/v1/sales | False | Fetch all sale records created
 
-Heroku deployment:
+# Heroku deployment:
 
 ##Follow this link to access My Heroku: https://store-manager-13.herokuapp.com/api/v1/products/1
 ## Author
