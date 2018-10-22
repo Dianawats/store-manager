@@ -2,7 +2,10 @@ import re
 
 
 class Validation:
-    """validation class to add product."""
+    """
+    validation class to add product.
+    """
+    
     def product_validation(self, product_name, quantity, price):
         """Method for product validation"""
         if not product_name:
