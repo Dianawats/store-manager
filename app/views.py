@@ -8,7 +8,9 @@ product_obj = Product()
 sale_obj = SaleRecord()
 validation_obj = Validation()
 
-"""These are the Product Views"""
+"""
+Product Views to handle requests with products endpoints
+"""
 @app.route("/api/v1/products",methods=["POST"])
 #This view adds product
 def add_product():
@@ -48,7 +50,9 @@ def fetch_single_product(product_id):
         return jsonify({"product details": single_product}), 200
     return jsonify({"message":"product not added yet"}), 404
 
-"""Sales View"""
+"""
+Sales View to handle requests with sales endpoint
+"""
 @app.route("/api/v1/sales", methods=["POST"])
 #adding sales record
 def create_sales_record():
