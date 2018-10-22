@@ -20,11 +20,11 @@ class TestProducts(BaseTestCase):
             data=json.dumps(dict(product="Ricess", quantity="20", price="4000"),))
         response2 = self.app.post("/api/v1/products",
             content_type='application/json',
-            data=json.dumps(dict(product="Rices", quantity="20", price="4000"),))    
+            data=json.dumps(dict(product="Ricess", quantity="20", price="4000"),))    
 
         reply = json.loads(response2.data)
-        self.assertEqual(reply["message"], "product added successfully")
-        self.assertEqual(response2.status_code, 201)
+        self.assertEqual(reply["message"], "The product inserted already exists, add a new product")
+        self.assertEqual(response2.status_code, 409)
 
     def test_add_product_with_no_name(self):
         response = self.app.post("/api/v1/products",

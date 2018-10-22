@@ -25,7 +25,7 @@ def add_product():
         if invalid:
             return jsonify({"message":invalid}), 400
         if any(prodct["product"] == product for prodct in product_obj.all_products):
-            return jsonify({"message":"product already exists, just update its quantity"}), 409
+            return jsonify({"message":"The product inserted already exists, add a new product"}), 409
         if (product_obj.add_product(product, quantity, price)):
             return jsonify({"message":"product added successfully", 
                             "products":product_obj.all_products}), 201
