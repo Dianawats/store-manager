@@ -32,9 +32,10 @@ class Product(object):
         Method to fetch a single product
         """
         if len(self.all_products) > 0:
-            for product in range(len(self.all_products)):
-                if ((self.all_products[product]["product_id"]) == int(product_id)):
-                    return self.all_products[product]
+            try:
+                product = next(prod for prod in self.all_products if prod["product_id"] == int(product_id))
+                return product
+            except Exception as err:
                 return False    
         return False
       
