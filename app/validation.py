@@ -5,7 +5,7 @@ class Validation:
     """
     validation class to add product.
     """
-    
+
     def product_validation(self, product_name, quantity, price):
         """Method for product validation"""
         if not product_name:
@@ -13,11 +13,11 @@ class Validation:
         if product_name == " ":
             return "product name is missing"
         if not re.match(r"^([a-zA-Z]+[-_\s])*[a-zA-Z]+$", product_name):
-            return "product name must have no white spaces"
+            return "product name should contain no white spaces"
         if not re.match(r"^[0-9]*$", quantity):
-            return "quantity must be only digits and must have no white spaces"
+            return "quantity should only be digits with no white spaces"
         if not re.match(r"^[0-9]*$", price):
-            return "price must be only digits and must have no white spaces"    
+            return "price should only be digits with no white spaces"    
         if len(product_name) < 3:
             return "product name should be more than 3 characters long"
         if not quantity:
@@ -37,5 +37,5 @@ class Validation:
         try:
             _input = int(input)
         except ValueError:
-            return "Input should be an interger"
+            return "Input should be an integer"
              

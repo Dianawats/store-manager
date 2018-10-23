@@ -83,7 +83,7 @@ class TestProducts(BaseTestCase):
             data=json.dumps(dict(product="rice", quantity=" ", price="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity must be only digits and must have no white spaces")
+        self.assertEqual(reply["message"], "quantity should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_add_product_without_price(self):
@@ -95,7 +95,7 @@ class TestProducts(BaseTestCase):
             data=json.dumps(dict(product="Ricess", quantity="20", price=" "),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "price must be only digits and must have no white spaces")
+        self.assertEqual(reply["message"], "price should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_fetching_none_exist_single_product(self):

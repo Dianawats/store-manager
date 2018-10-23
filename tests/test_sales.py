@@ -71,7 +71,7 @@ class TestSales(BaseTestCase):
             data=json.dumps(dict(product="posho", quantity=" ", amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity must be only digits and must have no white spaces")
+        self.assertEqual(reply["message"], "quantity should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_quantity_spaces(self):
@@ -83,7 +83,7 @@ class TestSales(BaseTestCase):
             data=json.dumps(dict(product="posho", quantity=" 20", amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity must be only digits and must have no white spaces")
+        self.assertEqual(reply["message"], "quantity should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_product_spaces(self):
@@ -95,7 +95,7 @@ class TestSales(BaseTestCase):
             data=json.dumps(dict(product=" posho", quantity="20", amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "product name must have no white spaces")
+        self.assertEqual(reply["message"], "product name should contain no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_short_product_name(self):
@@ -163,7 +163,7 @@ class TestSales(BaseTestCase):
         content_type='application/json',
             data=reply)
         reply2 = json.loads(response2.data.decode())
-        self.assertEqual(reply2["message"], "Input should be an interger")
+        self.assertEqual(reply2["message"], "Input should be an integer")
         self.assertEqual(response2.status_code, 400)
 
     def test_fetching_non_existing_single_sale(self):
