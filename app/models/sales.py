@@ -43,6 +43,7 @@ class SaleRecord(object):
                 return SaleRecord
             except Exception as err:
                 return False    
-        return False  
+        return False 
+     
 
 product_obj = Product()

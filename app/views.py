@@ -4,9 +4,6 @@ from .models.product import Product
 from .models.sales import SaleRecord
 from app.validation import Validation
 
-product_obj = Product()
-sale_obj = SaleRecord()
-validation_obj = Validation()
 
 """
 Product Views to handle requests with products endpoints
@@ -94,3 +91,6 @@ def fetch_single_sale(sale_id):
         return jsonify({"sale details": single_sale}), 200
     return jsonify({"message":"sale not created yet"}), 404
 
+product_obj = Product()
+sale_obj = SaleRecord()
+validation_obj = Validation()
