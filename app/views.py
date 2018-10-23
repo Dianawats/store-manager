@@ -2,7 +2,7 @@ from app import app
 from flask import request, jsonify
 from .models.product import Product
 from .models.sales import SaleRecord
-from app.validation import Validation
+from app.validation import Validator
 
 
 """
@@ -93,4 +93,4 @@ def fetch_single_sale(sale_id):
 
 product_obj = Product()
 sale_obj = SaleRecord()
-validation_obj = Validation()
+validation_obj = Validator()

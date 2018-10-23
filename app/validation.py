@@ -1,7 +1,7 @@
 import re
 
 
-class Validation:
+class Validator:
     """
     validation class to add product.
     """
