@@ -63,7 +63,8 @@ class TestSales(BaseTestCase):
 
     def test_creating_sale_missing_quantity(self):
         """
-        Test successful POST request to create a sale without quantity value
+        Test successful POST request to create 
+        a sale without quantity value
         """
         response = self.app.post("/api/v1/sales",
             content_type='application/json',
@@ -111,7 +112,8 @@ class TestSales(BaseTestCase):
 
     def test_creating_sale_with_wrong_quantity(self):
         """
-        Test successful POST request to create a sale with wrong quantity
+        Test successful POST request to create 
+        a sale with wrong quantity
         """
         response = self.app.post("/api/v1/sales",
             content_type='application/json',
@@ -145,25 +147,9 @@ class TestSales(BaseTestCase):
 
         reply = json.loads(response.data)
         self.assertEqual(reply["message"], "You missed some key in your request body")
-        self.assertEqual(response.status_code, 400)       
+        self.assertEqual(response.status_code, 400)          
 
-    def test_fetching_non_existing_single_sale(self):
-        """
-        Test GET request to fetch a sale
-        that does not exist
-        """
-        response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
-
-        reply = json.loads(response.data.decode())
-        response2 = self.app.get("/api/v1/sales/12",
-        content_type='application/json',
-            data=reply)
-        reply2 = json.loads(response2.data.decode())
-        self.assertEqual(response2.status_code, 404)    
-
-    def test_fetching_single_sale_with_impromper_id(self):
+    def test_fetching_single_sale_with_no_proper_id(self):
         """
         Test GET request to fetch a single sale
         with no proper id
@@ -178,4 +164,20 @@ class TestSales(BaseTestCase):
             data=reply)
         reply2 = json.loads(response2.data.decode())
         self.assertEqual(reply2["message"], "Input should be an interger")
-        self.assertEqual(response2.status_code, 400)               
+        self.assertEqual(response2.status_code, 400)
+
+     def test_fetching_non_existing_single_sale(self):
+        """
+        Test GET request to fetch a sale
+        that does not exist
+        """
+        response = self.app.post("/api/v1/sales",
+            content_type='application/json',
+            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+
+        reply = json.loads(response.data.decode())
+        response2 = self.app.get("/api/v1/sales/12",
+        content_type='application/json',
+            data=reply)
+        reply2 = json.loads(response2.data.decode())
+        self.assertEqual(response2.status_code, 404)                
