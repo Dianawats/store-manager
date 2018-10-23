@@ -30,7 +30,7 @@ class TestSales(BaseTestCase):
         response2 = self.app.get("/api/v1/sales",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
          
     def test_fetching_single_sale(self):
@@ -46,7 +46,7 @@ class TestSales(BaseTestCase):
         response2 = self.app.get("/api/v1/sales/1",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
 
     def test_creating_sale_a_missing_product(self):
@@ -179,5 +179,5 @@ class TestSales(BaseTestCase):
         response2 = self.app.get("/api/v1/sales/12",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 404)                

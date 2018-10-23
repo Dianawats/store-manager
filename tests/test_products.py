@@ -29,7 +29,7 @@ class TestProducts(BaseTestCase):
         response2 = self.app.get("/api/v1/products",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
 
     def test_fetching_single_product(self):
@@ -44,7 +44,7 @@ class TestProducts(BaseTestCase):
         response2 = self.app.get("/api/v1/products/1",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
 
     def test_add_existing_product(self):
@@ -110,7 +110,7 @@ class TestProducts(BaseTestCase):
         response2 = self.app.get("/api/v1/products/10",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 404)    
 
     def test_fetching_single_product_with_no_proper_id(self):
@@ -122,7 +122,7 @@ class TestProducts(BaseTestCase):
         response2 = self.app.get("/api/v1/products/q",
         content_type='application/json',
             data=reply)
-        reply2 = json.loads(response2.data.decode())
+        reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 400)        
         
     def test_add_product_with_short_name(self):
