@@ -166,7 +166,7 @@ class TestSales(BaseTestCase):
         self.assertEqual(reply2["message"], "Input should be an interger")
         self.assertEqual(response2.status_code, 400)
 
-     def test_fetching_non_existing_single_sale(self):
+    def test_fetching_non_existing_single_sale(self):
         """
         Test GET request to fetch a sale
         that does not exist
