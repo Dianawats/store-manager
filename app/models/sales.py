@@ -2,8 +2,6 @@ from app.models.product import Product
 from datetime import datetime
 
 
-product_obj = Product()
-
 class SaleRecord(object):
     """
     class that defines a sales object
@@ -47,3 +45,4 @@ class SaleRecord(object):
                 return False    
         return False  
 
+product_obj = Product()
