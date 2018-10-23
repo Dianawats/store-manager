@@ -37,7 +37,7 @@ def fetch_all_products():
     all_products = product_obj.fetch_all_products()
     if all_products:
         return jsonify({"All Products":all_products}), 200
-    return jsonify({"message":"no products added yet"}), 404 
+    return jsonify({"message":"products not yet added"}), 404 
 
 @app.route("/api/v1/products/<product_id>", methods=["GET"])
 #fetching a single product
@@ -48,7 +48,7 @@ def fetch_single_product(product_id):
     single_product = product_obj.fetch_single_product(product_id)
     if single_product:
         return jsonify({"product details": single_product}), 200
-    return jsonify({"message":"product not added yet"}), 404
+    return jsonify({"message":"product not yet added"}), 404
 
 """
 Sales View to handle requests with sales endpoint
@@ -71,7 +71,7 @@ def create_sales_record():
             return jsonify({"message":"Sale record successfully created", 
                             "Sales":sale_obj.all_Sales}), 201
         else:
-            return jsonify({"message":"sale record not created or no products added yet"}), 400
+            return jsonify({"message":"No sale record created yet"}), 400
     else:
         return jsonify({"message": "You missed some key in your request body"}), 400
 
