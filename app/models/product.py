@@ -19,7 +19,7 @@ class Product(object):
         self.all_products.append(product)
         return self.all_products
 
-    def fetch_all_products(self):
+    def get_all_products(self):
         """
         Method to fetch all available products
         """
@@ -27,7 +27,7 @@ class Product(object):
             return self.all_products
         return False
 
-    def fetch_single_product(self, product_id):
+    def get_single_product(self, product_id):
         """
         Method to fetch a single product
         """

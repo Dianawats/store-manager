@@ -9,7 +9,7 @@ from app.validation import Validator
 Product Views to handle requests with products endpoints
 """
 @app.route("/api/v1/products",methods=["POST"])
-#This view adds product
+#This route adds product
 def add_product():
     data = request.get_json()
     search_keys = ("product", "quantity", "price")
@@ -29,20 +29,20 @@ def add_product():
     return jsonify({"message": "You missed some key in your request body"}), 400 
 
 @app.route("/api/v1/products", methods=["GET"])
-#fetching all products
-def fetch_all_products():
-    all_products = product_obj.fetch_all_products()
+#get all products
+def get_all_products():
+    all_products = product_obj.get_all_products()
     if all_products:
         return jsonify({"All Products":all_products}), 200
     return jsonify({"message":"products not yet added"}), 404 
 
 @app.route("/api/v1/products/<product_id>", methods=["GET"])
-#fetching a single product
-def fetch_single_product(product_id):
+#get a single product
+def get_single_product(product_id):
     invalid = validation_obj.validate_input_type(product_id)
     if invalid:
         return jsonify({"message":invalid}), 400
-    single_product = product_obj.fetch_single_product(product_id)
+    single_product = product_obj.get_single_product(product_id)
     if single_product:
         return jsonify({"product details": single_product}), 200
     return jsonify({"message":"product not yet added"}), 404
@@ -73,20 +73,20 @@ def create_sales_record():
         return jsonify({"message": "You missed some key in your request body"}), 400
 
 @app.route("/api/v1/sales", methods=["GET"])
-# fetching all sales
-def fetch_all_sales():
-    all_sales = sale_obj.fetch_all_sales()
+# view all sales
+def get_all_sales():
+    all_sales = sale_obj.get_all_sales()
     if all_sales:
         return jsonify({"All Sales":sale_obj.all_Sales}), 200
     return jsonify({"message":"no sales created yet"}), 404 
 
 @app.route("/api/v1/sales/<sale_id>", methods=["GET"])
-# fetching a single product
-def fetch_single_sale(sale_id):
+# getting a single sale record
+def get_single_sale(sale_id):
     invalid = validation_obj.validate_input_type(sale_id)
     if invalid:
         return jsonify({"message":invalid}), 400
-    single_sale = sale_obj.fetch_single_sale(sale_id)
+    single_sale = sale_obj.get_single_sale(sale_id)
     if single_sale:
         return jsonify({"sale details": single_sale}), 200
     return jsonify({"message":"sale not created yet"}), 404

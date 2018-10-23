@@ -8,6 +8,11 @@ class SaleRecord(object):
     """
     
     def __init__(self):
+        """ 
+        contructor to initialise the sale record that 
+        contains all the attributes of that sale
+        """
+
         self.all_Sales = []
 
     def create_sale_record(self, product, quantity, amount):
@@ -25,7 +30,7 @@ class SaleRecord(object):
         self.all_Sales.append(sale_record)
         return True
 
-    def fetch_all_sales(self):
+    def get_all_sales(self):
         """
         Method to fetch all available sales
         """
@@ -33,7 +38,7 @@ class SaleRecord(object):
             return self.all_Sales
         return False
 
-    def fetch_single_sale(self, sale_id):
+    def get_single_sale(self, sale_id):
         """
         Method to fetch a single sale
         """
