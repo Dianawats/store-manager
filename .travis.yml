@@ -12,7 +12,8 @@ install:
     - pip install codecov
 
 script:
-    - nosetests -v --with-coverage --cover-package=app
+    - py.test
+    - py.test --cov
 
 after_success:
     - coveralls
