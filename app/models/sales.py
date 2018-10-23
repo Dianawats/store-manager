@@ -17,7 +17,7 @@ class SaleRecord(object):
 
     def create_sale_record(self, product, quantity, amount):
         """
-        Method to create a sales record
+        This method to creates a sales record
         """
         sale_record = dict(
             sale_id = len(self.all_Sales)+1,
@@ -32,7 +32,7 @@ class SaleRecord(object):
 
     def get_all_sales(self):
         """
-        Method to fetch all available sales
+        This method returns all the sales added in the list
         """
         if len(self.all_Sales) > 0:
             return self.all_Sales
@@ -40,7 +40,7 @@ class SaleRecord(object):
 
     def get_single_sale(self, sale_id):
         """
-        Method to fetch a single sale
+        This method fetches a single sale
         """
         if len(self.all_Sales) > 0:
             try:

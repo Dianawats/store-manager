@@ -8,7 +8,7 @@ class Product(object):
         This contructor initialises the product list that 
         contains all the attributes of that product
         """
-        
+
         self.all_products = []
 
     def add_product(self, product, quantity, price):
@@ -26,7 +26,7 @@ class Product(object):
 
     def get_all_products(self):
         """
-        Method to fetch all available products
+        This method returns all the products added in the list
         """
         if len(self.all_products) > 0:
             return self.all_products
@@ -34,7 +34,7 @@ class Product(object):
 
     def get_single_product(self, product_id):
         """
-        Method to fetch a single product
+        This method fetches a single product
         """
         if len(self.all_products) > 0:
             try:
