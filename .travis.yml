@@ -12,8 +12,8 @@ install:
     - pip install codecov
 
 script:
-    - py.test
     - py.test --cov
+    - py.test
 
 after_success:
     - coveralls
