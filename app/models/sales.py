@@ -21,7 +21,7 @@ class SaleRecord(object):
             product = product,
             quantity = quantity,
             amount = amount,
-            attendant = "attendants_name",
+            attendant = "attendant",
             date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
         self.all_Sales.append(sale_record)
