@@ -18,7 +18,7 @@ def add_product():
         quantity = data.get("quantity")
         price = data.get("price")
 
-        invalid = validation_obj.product_validation(product, quantity, price)
+        invalid = validation_obj.validate_product_inputs(product, quantity, price)
         if invalid:
             return jsonify({"message":invalid}), 400
         if any(prodct["product"] == product for prodct in product_obj.all_products):
@@ -61,7 +61,7 @@ def create_sales_record():
         quantity = data.get("quantity")
         amount = data.get("amount")
 
-        invalid_values = validation_obj.product_validation(product, quantity, amount)
+        invalid_values = validation_obj.validate_product_inputs(product, quantity, amount)
         if invalid_values:
             return jsonify({"message":invalid_values}), 400
         if (sale_obj.create_sale_record(product, quantity, amount)):

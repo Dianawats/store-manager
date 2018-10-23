@@ -6,7 +6,7 @@ class Validator:
     validation class to add product.
     """
 
-    def product_validation(self, product_name, quantity, price):
+    def validate_product_inputs(self, product_name, quantity, price):
         """
         Method validates the product input and return appropriate message
         """
