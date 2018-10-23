@@ -7,7 +7,9 @@ class Validator:
     """
 
     def product_validation(self, product_name, quantity, price):
-        """Method for product validation"""
+        """
+        Method validates the product input and return appropriate message
+        """
         if not product_name:
             return "product name is missing"
         if product_name == " ":
