@@ -39,12 +39,6 @@ class SaleRecord(object):
         """
         Method to fetch a single sale
         """
-        # if len(self.all_Sales) > 0:
-        #     for sale in range(len(self.all_Sales)):
-        #         if ((self.all_Sales[sale]["sale_id"]) == int(sale_id)):
-        #             return self.all_Sales[sale]
-        #         return False    
-        # return False  
         if len(self.all_Sales) > 0:
             try:
                 SaleRecord = next(sale for sale in self.all_Sales if sale["sale_id"] == int(sale_id))
