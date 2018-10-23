@@ -4,6 +4,11 @@ class Product(object):
     """
 
     def __init__(self):
+        """
+        This contructor initialises the product list that 
+        contains all the attributes of that product
+        """
+        
         self.all_products = []
 
     def add_product(self, product, quantity, price):

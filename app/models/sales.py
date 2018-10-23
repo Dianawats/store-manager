@@ -9,7 +9,7 @@ class SaleRecord(object):
     
     def __init__(self):
         """ 
-        contructor to initialise the sale record that 
+        This contructor initialises the sale record list that 
         contains all the attributes of that sale
         """
 
