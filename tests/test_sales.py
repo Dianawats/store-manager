@@ -180,4 +180,18 @@ class TestSales(BaseTestCase):
         content_type='application/json',
             data=reply)
         reply = json.loads(response2.data.decode())
-        self.assertEqual(response2.status_code, 404)                
+        self.assertEqual(response2.status_code, 404) 
+
+    def test_add_sales_with_invalid_characters(self):
+        """
+        Tests creating a new salerecord with invalid characters
+        """
+        inv_char = {
+            "product": "@#9$%",
+            "quantity": "5#$%",
+            "amount": "@80#$%"
+        }
+        response = self.app.post("/api/v1/sales",
+                                    data=json.dumps(inv_char),
+                                    content_type='application/json')
+        self.assertEqual(response.status_code, 400)               

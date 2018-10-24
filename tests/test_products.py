@@ -164,8 +164,10 @@ class TestProducts(BaseTestCase):
     def test_validate_input_type(self):
         self.assertTrue(isinstance(product_obj.all_products, list))
 
-    def test_add_product__with_invalid_characters(self):
-        """ Tests creating a new product with invalid characters """
+    def test_add_product_with_invalid_characters(self):
+        """
+        Tests creating a new product with invalid characters
+        """
         inv_char = {
             "product": "@#$%",
             "quantity": "55#$%",
@@ -176,6 +178,6 @@ class TestProducts(BaseTestCase):
                                     content_type='application/json')
         self.assertEqual(response.status_code, 400)
 
-                  
+        
     
               
