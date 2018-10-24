@@ -7,7 +7,6 @@
 Store Manager is a web application that helps store owners manage sales and product inventory
 records. This application is meant for use in a single store..
 
-
 ### Prerequisites
 
 ##Built with;
@@ -42,11 +41,11 @@ GET | /sales | Fetch all sale records | None | False
 
 # Heroku deployment:
 
-##Follow this link to access My Heroku: https://store-manager-13.herokuapp.com/api/v1/products/1
+## Follow this link to access My Heroku: https://store-manager-13.herokuapp.com/api/v1/products/1
 
 ## Author
 
-* **Diana Nakiwala**
+### Diana Nakiwala**
 
 ## Acknowledgments
 
