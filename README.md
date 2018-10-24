@@ -39,13 +39,13 @@ POST | /sales | Create a sale order | None | False
 GET | /sales/<sale_id> | Fetch a single sale record | sale_id | False
 GET | /sales | Fetch all sale records | None | False
 
-# Heroku deployment:
+### Heroku deployment:
 
-## Follow this link to access My Heroku: https://store-manager-13.herokuapp.com/api/v1/products/1
+##Follow this link to access My Heroku: https://store-manager-13.herokuapp.com/api/v1/products/1
 
 ## Author
 
-### Diana Nakiwala**
+## Diana Nakiwala**
 
 ## Acknowledgments
 
