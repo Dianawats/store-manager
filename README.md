@@ -16,7 +16,7 @@ records. This application is meant for use in a single store..
 
 ## Project links:
 
-Here is my link to the UI final branch:
+Here is my link to develop branch for the endpoints:
 (git clone: https://github.com/Dianawats/store-manager)
 
 ### API Endpoints
