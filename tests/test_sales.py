@@ -10,11 +10,14 @@ class TestSales(BaseTestCase):
         Test successful POST request to create a sale
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "Sale record successfully created")
+        self.assertEqual(reply["message"], 
+                               "Sale record successfully created")
         self.assertEqual(response.status_code, 201)
 
     def test_fetching_sales(self):
@@ -23,13 +26,15 @@ class TestSales(BaseTestCase):
         fetch all sales
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
         response2 = self.app.get("/api/v1/sales",
-        content_type='application/json',
-            data=reply)
+                                    content_type='application/json',
+                                    data=reply)
         reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
          
@@ -39,13 +44,15 @@ class TestSales(BaseTestCase):
         fetch a single sale
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
         response2 = self.app.get("/api/v1/sales/1",
-        content_type='application/json',
-            data=reply)
+                                    content_type='application/json',
+                                    data=reply)
         reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
 
@@ -54,8 +61,10 @@ class TestSales(BaseTestCase):
         Test POST request to create no product
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product=" ", quantity="20", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product=" ", 
+                                                         quantity="20", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
         self.assertEqual(reply["message"], "product name is missing")
@@ -67,11 +76,14 @@ class TestSales(BaseTestCase):
         a sale without quantity value
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="posho", quantity=" ", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="posho", 
+                                                         quantity=" ", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity should only be digits with no white spaces")
+        self.assertEqual(reply["message"], 
+                               "quantity should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_quantity_spaces(self):
@@ -79,11 +91,14 @@ class TestSales(BaseTestCase):
         Test successful POST request to create a sale with quantity spaces
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="posho", quantity=" 20", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="posho", 
+                                                         quantity=" 20", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity should only be digits with no white spaces")
+        self.assertEqual(reply["message"], 
+                               "quantity should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_product_spaces(self):
@@ -91,11 +106,14 @@ class TestSales(BaseTestCase):
         Test successful POST request to create a sale with product spaces
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product=" posho", quantity="20", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product=" posho", 
+                                                         quantity="20", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "product name should contain no white spaces")
+        self.assertEqual(reply["message"], 
+                               "product name should contain no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_short_product_name(self):
@@ -103,11 +121,14 @@ class TestSales(BaseTestCase):
         Test successful POST request to create a sale with short product name
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="ph", quantity="20", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="ph", 
+                                                         quantity="20", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "product name should be more than 3 characters long")
+        self.assertEqual(reply["message"], 
+                               "product name should be more than 3 characters long")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_wrong_quantity(self):
@@ -116,11 +137,14 @@ class TestSales(BaseTestCase):
         a sale with wrong quantity
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="sugar", quantity="0", amount="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="sugar", 
+                                                         quantity="0", 
+                                                         amount="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity should be at least 1 item")
+        self.assertEqual(reply["message"], 
+                               "quantity should be at least 1 item")
         self.assertEqual(response.status_code, 400)
 
     def test_creating_sale_with_wrong_price(self):
@@ -129,11 +153,14 @@ class TestSales(BaseTestCase):
         a sale with wrong price
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="sugar", quantity="20", amount="0"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="sugar", 
+                                                         quantity="20", 
+                                                         amount="0"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "price should be greater than zero or more")
+        self.assertEqual(reply["message"], 
+                               "price should be greater than zero or more")
         self.assertEqual(response.status_code, 400)  
 
     def test_creating_sale_with_missing_key(self):
@@ -142,11 +169,13 @@ class TestSales(BaseTestCase):
         a sale with some key missing
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(quantity="20", amount="0"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(quantity="20", 
+                                                         amount="0"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "You missed some key in your request body")
+        self.assertEqual(reply["message"], 
+                               "You missed some key in your request body")
         self.assertEqual(response.status_code, 400)          
 
     def test_fetching_single_sale_with_no_proper_id(self):
@@ -155,13 +184,15 @@ class TestSales(BaseTestCase):
         with no proper id
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
-        response2 = self.app.get("/api/v1/sales/q",
-        content_type='application/json',
-            data=reply)
+        response2 = self.app.get("/api/v1/sales/s",
+                                    content_type='application/json',
+                                    data=reply)
         reply2 = json.loads(response2.data.decode())
         self.assertEqual(reply2["message"], "Input should be an integer")
         self.assertEqual(response2.status_code, 400)
@@ -172,13 +203,15 @@ class TestSales(BaseTestCase):
         that does not exist
         """
         response = self.app.post("/api/v1/sales",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
-        response2 = self.app.get("/api/v1/sales/12",
-        content_type='application/json',
-            data=reply)
+        response2 = self.app.get("/api/v1/sales/10",
+                                    content_type='application/json',
+                                    data=reply)
         reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 404) 
 

@@ -10,8 +10,10 @@ class TestProducts(BaseTestCase):
         Test POST request to add a product successfully
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data)
         self.assertEqual(reply["message"], "product added successfully")
@@ -22,8 +24,10 @@ class TestProducts(BaseTestCase):
         Test GET request to fetch all products
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
         response2 = self.app.get("/api/v1/products",
@@ -37,13 +41,15 @@ class TestProducts(BaseTestCase):
         Test successful GET request to fetch a product by id
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
         response2 = self.app.get("/api/v1/products/1",
-        content_type='application/json',
-            data=reply)
+                                    content_type='application/json',
+                                    data=reply)
         reply = json.loads(response2.data.decode())
         self.assertEqual(response2.status_code, 200)
 
@@ -52,14 +58,19 @@ class TestProducts(BaseTestCase):
         Test POST a product that exists
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Ricess", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Ricess", 
+                                                         quantity="20", 
+                                                         price="4000"),))
         response2 = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Ricess", quantity="20", price="4000"),))    
+                                     content_type='application/json',
+                                     data=json.dumps(dict(product="Ricess", 
+                                                          quantity="20", 
+                                                          price="4000"),))    
 
         reply = json.loads(response2.data)
-        self.assertEqual(reply["message"], "The product inserted already exists, add a new product")
+        self.assertEqual(reply["message"], 
+                               "The product inserted already exists, add a new product")
         self.assertEqual(response2.status_code, 409)
 
     def test_add_product_without_a_name(self):
@@ -67,8 +78,10 @@ class TestProducts(BaseTestCase):
         Test POST request to add a product with no name
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product=" ", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product=" ", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data)
         self.assertEqual(reply["message"], "product name is missing")
@@ -79,11 +92,14 @@ class TestProducts(BaseTestCase):
         Test POST request to add a product with no quantity
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="rice", quantity=" ", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="rice", 
+                                                         quantity=" ", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "quantity should only be digits with no white spaces")
+        self.assertEqual(reply["message"], 
+                               "quantity should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_add_product_without_price(self):
@@ -91,11 +107,14 @@ class TestProducts(BaseTestCase):
         Test POST request to add a product with no value
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Ricess", quantity="20", price=" "),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Ricess",
+                                                         quantity="20", 
+                                                         price=" "),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "price should only be digits with no white spaces")
+        self.assertEqual(reply["message"], 
+                               "price should only be digits with no white spaces")
         self.assertEqual(response.status_code, 400)
 
     def test_fetching_none_exist_single_product(self):
@@ -103,8 +122,10 @@ class TestProducts(BaseTestCase):
         Test GET request to fetch a product that doesnot exist
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
         response2 = self.app.get("/api/v1/products/10",
@@ -115,8 +136,10 @@ class TestProducts(BaseTestCase):
 
     def test_fetching_single_product_with_no_proper_id(self):
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Rice", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Rice",
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data.decode())
         response2 = self.app.get("/api/v1/products/q",
@@ -130,11 +153,14 @@ class TestProducts(BaseTestCase):
         Test POST request to add a product with short name
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="rc", quantity="20", price="4000"),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="rc", 
+                                                         quantity="20", 
+                                                         price="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "product name should be more than 3 characters long")
+        self.assertEqual(reply["message"], 
+                               "product name should be more than 3 characters long")
         self.assertEqual(response.status_code, 400)
 
     def test_add_product_with_missing_key(self):
@@ -146,7 +172,8 @@ class TestProducts(BaseTestCase):
             data=json.dumps(dict(quantity="20", price="4000"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "You missed some key in your request body")
+        self.assertEqual(reply["message"], 
+                               "You missed some key in your request body")
         self.assertEqual(response.status_code, 400)        
 
     def test_add_product_with_no_price_2(self):
@@ -154,8 +181,10 @@ class TestProducts(BaseTestCase):
         Test POST request to add a product with no price
         """
         response = self.app.post("/api/v1/products",
-            content_type='application/json',
-            data=json.dumps(dict(product="Ricess", quantity="20", price=""),))
+                                    content_type='application/json',
+                                    data=json.dumps(dict(product="Ricess", 
+                                                         quantity="20", 
+                                                         price=""),))
 
         reply = json.loads(response.data)
         self.assertEqual(reply["message"], "price is missing")
