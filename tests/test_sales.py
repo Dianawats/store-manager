@@ -133,7 +133,7 @@ class TestSales(BaseTestCase):
             data=json.dumps(dict(product="sugar", quantity="20", amount="0"),))
 
         reply = json.loads(response.data)
-        self.assertEqual(reply["message"], "price should be greater than zero")
+        self.assertEqual(reply["message"], "price should be greater than zero or more")
         self.assertEqual(response.status_code, 400)  
 
     def test_creating_sale_with_missing_key(self):

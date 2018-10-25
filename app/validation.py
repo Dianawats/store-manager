@@ -31,7 +31,7 @@ class Validator:
         if not price:
             return "price is missing"
         if int(price) < 1:
-            return "price should be greater than zero"    
+            return "price should be greater than zero or more"    
         if price == " ":
             return "price is missing"    
         
