@@ -9,8 +9,10 @@ from app.validation import Validator
 Product Views to handle requests with products endpoints
 """
 @app.route("/api/v1/products",methods=["POST"])
-#This route adds product
+#This defines our route as being /api/v1/products 
+# & as being accessible only via a get request
 def add_product():
+    #assign the method to it to return the string
     data = request.get_json()
     search_keys = ("product", "quantity", "price")
     if all(key in data.keys() for key in search_keys):
@@ -22,7 +24,8 @@ def add_product():
         if invalid:
             return jsonify({"message":invalid}), 400
         if any(prodct["product"] == product for prodct in product_obj.all_products):
-            return jsonify({"message":"The product inserted already exists, add a new product"}), 409
+            return jsonify({"message":
+                            "The product inserted already exists, add a new product"}), 409
         if (product_obj.add_product(product, quantity, price)):
             return jsonify({"message":"product added successfully", 
                             "products":product_obj.all_products}), 201
@@ -70,7 +73,8 @@ def create_sales_record():
         else:
             return jsonify({"message":"No sale record created yet"}), 400
     else:
-        return jsonify({"message": "You missed some key in your request body"}), 400
+        return jsonify({"message": 
+                        "You missed some key in your request body"}), 400
 
 @app.route("/api/v1/sales", methods=["GET"])
 # view all sales
